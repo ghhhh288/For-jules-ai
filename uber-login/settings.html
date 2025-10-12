@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Settings | Ride</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="settings.css" />
+</head>
+<body>
+  <a href="#content" class="skip-link">Skip to content</a>
+  <header class="appbar" role="banner">
+    <div class="appbar-inner">
+      <a href="index.html" class="brand" aria-label="Go to sign in">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png" alt="Ride logo" class="logo" />
+      </a>
+      <div class="appbar-actions">
+        <div class="user">
+          <img class="avatar" src="https://i.pravatar.cc/80?img=13" alt="" aria-hidden="true" />
+          <span class="username">Alex</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="settings" aria-labelledby="page-title">
+    <h1 id="page-title" class="visually-hidden">Account Settings</h1>
+
+    <nav class="settings-nav" aria-label="Settings sections">
+      <ul>
+        <li><a class="nav-link active" href="#profile" data-section-link="profile">Profile</a></li>
+        <li><a class="nav-link" href="#notifications" data-section-link="notifications">Notifications</a></li>
+        <li><a class="nav-link" href="#privacy" data-section-link="privacy">Privacy & Security</a></li>
+        <li><a class="nav-link" href="#payments" data-section-link="payments">Payments</a></li>
+        <li><a class="nav-link" href="#preferences" data-section-link="preferences">Preferences</a></li>
+        <li><a class="nav-link" href="#appearance" data-section-link="appearance">Appearance</a></li>
+      </ul>
+    </nav>
+
+    <div class="settings-content">
+      <section id="profile" class="card section" tabindex="-1" aria-labelledby="section-profile-title">
+        <header class="section-header">
+          <h2 id="section-profile-title">Profile</h2>
+          <p class="muted">Manage your account information.</p>
+        </header>
+        <div class="grid two">
+          <div class="field">
+            <label for="full-name" class="label">Full name</label>
+            <input id="full-name" name="full-name" type="text" autocomplete="name" placeholder="Alex Johnson" />
+          </div>
+          <div class="field">
+            <label for="email-setting" class="label">Email</label>
+            <input id="email-setting" name="email-setting" type="email" autocomplete="email" placeholder="alex@example.com" />
+          </div>
+          <div class="field">
+            <label for="phone-setting" class="label">Phone</label>
+            <input id="phone-setting" name="phone-setting" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 555-1234" />
+          </div>
+          <div class="field">
+            <label for="country-setting" class="label">Country</label>
+            <div class="select">
+              <select id="country-setting" autocomplete="country">
+                <option value="US" selected>United States</option>
+                <option value="CA">Canada</option>
+                <option value="GB">United Kingdom</option>
+                <option value="IN">India</option>
+                <option value="AU">Australia</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="uploader">
+          <div class="avatar-lg" aria-hidden="true">A</div>
+          <div class="uploader-actions">
+            <label class="btn neutral small">
+              <input type="file" accept="image/*" hidden id="upload-avatar" />
+              Change photo
+            </label>
+            <button class="btn neutral small" id="remove-avatar" type="button">Remove</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="notifications" class="card section" tabindex="-1" aria-labelledby="section-notifications-title">
+        <header class="section-header">
+          <h2 id="section-notifications-title">Notifications</h2>
+          <p class="muted">Choose how you want to be notified.</p>
+        </header>
+        <div class="stack">
+          <label class="switch">
+            <input type="checkbox" id="notif-push" checked />
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span class="switch-label">Push notifications</span>
+          </label>
+          <label class="switch">
+            <input type="checkbox" id="notif-sms" />
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span class="switch-label">SMS alerts</span>
+          </label>
+          <label class="switch">
+            <input type="checkbox" id="notif-email" checked />
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span class="switch-label">Email updates</span>
+          </label>
+        </div>
+      </section>
+
+      <section id="privacy" class="card section" tabindex="-1" aria-labelledby="section-privacy-title">
+        <header class="section-header">
+          <h2 id="section-privacy-title">Privacy & Security</h2>
+          <p class="muted">Control your data and security.</p>
+        </header>
+        <div class="stack">
+          <label class="switch">
+            <input type="checkbox" id="two-factor" />
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span class="switch-label">Two-factor authentication</span>
+          </label>
+          <label class="switch">
+            <input type="checkbox" id="share-location" checked />
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span class="switch-label">Share location for pickups</span>
+          </label>
+          <label class="switch">
+            <input type="checkbox" id="use-ride-data" />
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span class="switch-label">Allow ride data to improve service</span>
+          </label>
+        </div>
+      </section>
+
+      <section id="payments" class="card section" tabindex="-1" aria-labelledby="section-payments-title">
+        <header class="section-header">
+          <h2 id="section-payments-title">Payments</h2>
+          <p class="muted">Manage your payment methods.</p>
+        </header>
+        <ul class="payment-list" id="payment-list">
+          <li class="payment-item">
+            <div class="method">
+              <div class="card-logo" aria-hidden="true"></div>
+              <div class="text">
+                <div class="title">Visa •••• 4242</div>
+                <div class="sub muted">Expires 12/28</div>
+              </div>
+            </div>
+            <div class="default">
+              <label class="radio">
+                <input type="radio" name="default-payment" checked />
+                <span>Default</span>
+              </label>
+            </div>
+            <div class="actions">
+              <button type="button" class="btn neutral small remove-payment">Remove</button>
+            </div>
+          </li>
+        </ul>
+        <div class="actions-row">
+          <button class="btn primary" type="button" id="add-payment">Add payment method</button>
+        </div>
+      </section>
+
+      <section id="preferences" class="card section" tabindex="-1" aria-labelledby="section-preferences-title">
+        <header class="section-header">
+          <h2 id="section-preferences-title">Preferences</h2>
+          <p class="muted">Localization and measurement units.</p>
+        </header>
+        <div class="grid two">
+          <div class="field">
+            <label class="label" for="language">Language</label>
+            <div class="select">
+              <select id="language" autocomplete="language">
+                <option value="en" selected>English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="hi">हिन्दी</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="units">Units</label>
+            <div class="select">
+              <select id="units">
+                <option value="metric">Metric (km, kg)</option>
+                <option value="imperial" selected>Imperial (mi, lb)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="appearance" class="card section" tabindex="-1" aria-labelledby="section-appearance-title">
+        <header class="section-header">
+          <h2 id="section-appearance-title">Appearance</h2>
+          <p class="muted">Theme and accessibility.</p>
+        </header>
+        <div class="stack">
+          <div class="segmented" role="radiogroup" aria-label="Theme">
+            <label class="seg">
+              <input type="radio" name="theme" value="system" checked />
+              <span>System</span>
+            </label>
+            <label class="seg">
+              <input type="radio" name="theme" value="light" />
+              <span>Light</span>
+            </label>
+            <label class="seg">
+              <input type="radio" name="theme" value="dark" />
+              <span>Dark</span>
+            </label>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="high-contrast" />
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span class="switch-label">High contrast</span>
+          </label>
+          <label class="switch">
+            <input type="checkbox" id="reduce-motion" />
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span class="switch-label">Reduce motion</span>
+          </label>
+        </div>
+      </section>
+
+      <div class="savebar">
+        <button class="btn primary" id="save-btn" type="button">Save changes</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="payment-modal" class="modal" hidden aria-hidden="true">
+    <div class="overlay" data-close-modal></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <header class="modal-header">
+        <h3 id="modal-title">Add payment method</h3>
+        <button class="icon-btn" type="button" data-close-modal aria-label="Close">✕</button>
+      </header>
+      <p class="muted" id="modal-desc">Enter your card details. This is a demo and will not process payments.</p>
+      <form id="payment-form" class="stack">
+        <div class="field">
+          <label for="cardholder" class="label">Cardholder name</label>
+          <input id="cardholder" type="text" placeholder="Alex Johnson" required />
+        </div>
+        <div class="field">
+          <label for="cardnumber" class="label">Card number</label>
+          <input id="cardnumber" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="4242 4242 4242 4242" required />
+        </div>
+        <div class="grid two">
+          <div class="field">
+            <label for="expiry" class="label">Expiry</label>
+            <input id="expiry" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="12/28" required />
+          </div>
+          <div class="field">
+            <label for="cvc" class="label">CVC</label>
+            <input id="cvc" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="123" required />
+          </div>
+        </div>
+        <div class="actions-row">
+          <button class="btn neutral" type="button" data-close-modal>Cancel</button>
+          <button class="btn primary" type="submit">Add card</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="settings.js" defer></script>
+</body>
+</html>
