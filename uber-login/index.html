@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | Ride</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app" class="app" aria-labelledby="page-title">
+    <h1 id="page-title" class="visually-hidden">Sign in to Ride</h1>
+
+    <section class="auth-card" aria-label="Sign in options">
+      <header class="auth-header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png" alt="App logo" class="logo" />
+        <h2 class="auth-title">Welcome back</h2>
+        <p class="auth-subtitle">Sign in to continue</p>
+      </header>
+
+      <nav class="auth-tabs" role="tablist" aria-label="Sign in method">
+        <button role="tab" aria-selected="true" aria-controls="panel-phone" id="tab-phone" class="tab is-active">Phone</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-email" id="tab-email" class="tab">Email</button>
+      </nav>
+
+      <form id="form-phone" class="panel" role="tabpanel" tabindex="0" aria-labelledby="tab-phone" aria-hidden="false">
+        <div class="field">
+          <label for="country" class="label">Country</label>
+          <div class="select">
+            <select id="country" name="country" autocomplete="country" aria-describedby="country-help">
+              <option value="US" selected>United States (+1)</option>
+              <option value="CA">Canada (+1)</option>
+              <option value="GB">United Kingdom (+44)</option>
+              <option value="IN">India (+91)</option>
+              <option value="AU">Australia (+61)</option>
+            </select>
+          </div>
+          <p id="country-help" class="help">Pick your phone’s country code</p>
+        </div>
+
+        <div class="field">
+          <label for="phone" class="label">Phone number</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 555-1234" required />
+          <p class="error" id="phone-error" role="alert" hidden>Enter a valid phone number.</p>
+        </div>
+
+        <button type="submit" class="btn primary" id="send-otp">Continue</button>
+
+        <div class="divider"><span>or</span></div>
+
+        <div class="sso">
+          <button type="button" class="btn neutral" id="apple-btn" aria-label="Continue with Apple">
+            <span class="icon apple" aria-hidden="true"></span>
+            Continue with Apple
+          </button>
+          <button type="button" class="btn neutral" id="google-btn" aria-label="Continue with Google">
+            <span class="icon google" aria-hidden="true"></span>
+            Continue with Google
+          </button>
+          <button type="button" class="btn neutral" id="facebook-btn" aria-label="Continue with Facebook">
+            <span class="icon facebook" aria-hidden="true"></span>
+            Continue with Facebook
+          </button>
+        </div>
+      </form>
+
+      <form id="form-email" class="panel is-hidden" role="tabpanel" tabindex="0" aria-labelledby="tab-email" aria-hidden="true">
+        <div class="field">
+          <label for="email" class="label">Email</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required />
+          <p class="error" id="email-error" role="alert" hidden>Enter a valid email address.</p>
+        </div>
+
+        <div class="field">
+          <label for="password" class="label">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Your password" required minlength="8" />
+          <button type="button" class="link" id="toggle-password" aria-pressed="false" aria-controls="password">Show</button>
+        </div>
+
+        <button type="submit" class="btn primary">Sign in</button>
+
+        <div class="divider"><span>or</span></div>
+
+        <div class="sso">
+          <button type="button" class="btn neutral" aria-label="Continue with Apple">
+            <span class="icon apple" aria-hidden="true"></span>
+            Continue with Apple
+          </button>
+          <button type="button" class="btn neutral" aria-label="Continue with Google">
+            <span class="icon google" aria-hidden="true"></span>
+            Continue with Google
+          </button>
+        </div>
+      </form>
+
+      <form id="form-otp" class="panel is-hidden" role="tabpanel" tabindex="0" aria-labelledby="tab-phone" aria-hidden="true">
+        <p class="otp-instructions">Enter the 4-digit code sent to your phone</p>
+        <div class="otp-group" role="group" aria-labelledby="otp-label">
+          <span id="otp-label" class="visually-hidden">One-time passcode inputs</span>
+          <input class="otp-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]*" aria-label="Digit 1" />
+          <input class="otp-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]*" aria-label="Digit 2" />
+          <input class="otp-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]*" aria-label="Digit 3" />
+          <input class="otp-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]*" aria-label="Digit 4" />
+        </div>
+        <p class="error" id="otp-error" role="alert" hidden>Invalid code. Try again.</p>
+        <button type="submit" class="btn primary">Verify</button>
+        <button type="button" class="link" id="resend-otp">Resend code</button>
+      </form>
+
+      <footer class="auth-footer">
+        <p class="muted">
+          By continuing, you agree to our
+          <a href="#" class="link">Terms</a> and <a href="#" class="link">Privacy Policy</a>.
+        </p>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
